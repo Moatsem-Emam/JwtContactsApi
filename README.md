@@ -1,78 +1,79 @@
 # 📞 Contacts Management API
 
-نظام Web API آمن باستخدام ASP.NET Core لإدارة جهات الاتصال، مبني بأسلوب **Clean Architecture**، مع دعم المصادقة باستخدام JWT وتفويض الأدوار (Roles).
+A secure Web API built with **ASP.NET Core** for managing contacts, following the **Clean Architecture** pattern.  
+Includes support for **JWT authentication** and **role-based authorization**.
 
 ---
 
-## 🔧 المميزات
+## 🔧 Features
 
-- 🔐 تسجيل الدخول والتسجيل باستخدام JWT
-- 👥 تفويض بالأدوار (Admin / User)
-- 📇 عمليات CRUD على جهات الاتصال
-- 🔍 فرز وتقسيم إلى صفحات (Sorting & Pagination)
-- 🧱 تصميم Clean Architecture (Application / Infrastructure / Presentation)
-- 🐳 دعم Docker و Docker Compose
+- 🔐 JWT-based login and registration
+- 👥 Role-based authorization (Admin / User)
+- 📇 Full CRUD operations for contacts
+- 🔍 Sorting and pagination
+- 🧱 Clean Architecture (Application / Infrastructure / Presentation)
+- 🐳 Docker & Docker Compose support
 
 ---
 
-## 🚀 كيف تبدأ
+## 🚀 Getting Started
 
-### ✅ المتطلبات
+### ✅ Prerequisites
 
 - [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
-- [Visual Studio](https://visualstudio.microsoft.com/) أو [VS Code](https://code.visualstudio.com/)
+- [Visual Studio](https://visualstudio.microsoft.com/) or [VS Code](https://code.visualstudio.com/)
 
 ---
 
-## ▶️ التشغيل
+## ▶️ Run the Project
 
-### 🔹 تشغيل عادي
+### 🔹 Standard Run
 
 ```bash
-# 1. كلون للمشروع
+# 1. Clone the repository
 git clone https://github.com/your-username/contacts-api.git
 cd contacts-api
 
-# 2. تنفيذ المايجريشن
+# 2. Apply migrations
 dotnet ef database update --project Infrastructure
 
-# 3. تشغيل الـ API
+# 3. Run the API
 dotnet run --project Presentation/ContactsApi
 ```
 
-- Swagger UI: [https://localhost:5001/swagger](https://localhost:5001/swagger)
+- **Swagger UI:** [https://localhost:5001/swagger](https://localhost:5001/swagger)
 
 ---
 
-### 🐳 تشغيل باستخدام Docker
+### 🐳 Run with Docker
 
 ```bash
 docker-compose up --build
 ```
 
-- Swagger UI: [http://localhost:5000/swagger](http://localhost:5000/swagger)
-- SQL Server:
-  - المضيف: `localhost:1433`
-  - المستخدم: `sa`
-  - كلمة المرور: `Your_password123`
+- **Swagger UI**: [http://localhost:5000/swagger](http://localhost:5000/swagger)
+- **SQL Server**:
+  - **Host:** `localhost:1433`
+  - **User:** `sa`
+  - **Password:** `Your_password123`
 
 ---
 
-## 📂 هيكل المشروع
+## 📂 Project Structure
 
 ```plaintext
 📁 Application/
-│  ├── Service/                 # تنفيذ الخدمات (مثل ContactService)
-│  └── Service.Abstraction/    # تعريفات الواجهات (Interfaces)
+│  ├── Service/                 # Service implementations (e.g., ContactService)
+│  └── Service.Abstraction/    # Interface definitions
 │
 📁 Infrastructure/
-│  ├── Core/                   # إعدادات أو مكونات أساسية
-│  ├── Persistence/            # DbContext والمايجريشن
-│  └── Shared.Dtos/            # ملفات DTOs
+│  ├── Core/                   # Core configurations and components
+│  ├── Persistence/            # DbContext and migrations
+│  └── Shared.Dtos/            # DTO files
 │
 📁 Presentation/
-│  └── ContactsApi/            # نقطة الدخول، الكنترولرز، Program.cs
+│  └── ContactsApi/            # Entry point, controllers, Program.cs
 │      ├── Controllers/
 │      ├── appsettings.json
 │      └── Dockerfile
@@ -80,11 +81,11 @@ docker-compose up --build
 
 ---
 
-## 🔑 المصادقة والتفويض
+## 🔑 Authentication & Authorization
 
-بعد التسجيل أو تسجيل الدخول، هتحصل على **JWT Token**.
+After registration or login, a **JWT Token** is returned.
 
-استخدمه للوصول للنقاط المحمية.
+Use it to access protected endpoints by including it in the `Authorization` header:
 
 ```http
 Authorization: Bearer <your_token>
@@ -92,9 +93,9 @@ Authorization: Bearer <your_token>
 
 ---
 
-## 📦 مجموعة Postman
+## 📦 Postman Collection
 
-- موجودة داخل مجلد `/Postman`.
-- تقدر تجرب تسجيل الدخول، CRUD للـ Contacts، الخ...
+- Available in the `/Postman` directory.
+- Includes examples for login, contact CRUD operations, and more.
 
 ---
