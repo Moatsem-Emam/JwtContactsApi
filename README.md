@@ -32,7 +32,7 @@ Includes support for **JWT authentication** and **role-based authorization**.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/contacts-api.git
+git clone https://github.com/Moatsem-Emam/JwtContactsApi.git
 cd contacts-api
 
 # 2. Apply migrations
